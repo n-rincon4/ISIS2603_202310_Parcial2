@@ -18,12 +18,12 @@ export class RecetaListComponent implements OnInit {
   getRecetas(): void {
     this.recetaService.getRecetas().subscribe((recetas) => {
       this.recetas = recetas;
+      this.message = this.getEstrellasPromedio(this.recetas);
     });
   }
 
   ngOnInit() {
     this.getRecetas();
-    this.message = this.getEstrellasPromedio(this.recetas);
   }
 
   getEstrellasPromedio(recetas: Receta[]): string {
